@@ -113,7 +113,7 @@ fun QuadrantItem(heading: String,description: String, backgroundColor: Color, mo
             Text(
                 text = heading,
                 fontWeight = FontWeight.Bold,
-                modifier = modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(bottom = 16.dp)//parameters can be used for parents not for children
             )
             Text(
                 text = description,
@@ -128,5 +128,6 @@ fun GreetingPreview() {
     ArticlePage_Compose_AppTheme {
         /*Greeting("Android")*/
         ComposeQuadrant()
+        //QuadrantItem(heading = "Column composable", description = "A layout composable that places its children in a vertical sequence.", backgroundColor = Color(0xFFF6EDFF))
     }
 }
