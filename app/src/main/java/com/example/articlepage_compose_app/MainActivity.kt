@@ -12,9 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,9 +30,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArticlePage_Compose_AppTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Greeting(
+                    /*Greeting(
                         name = "Android"
-                    )
+                    )*/
+                    TaskManager()
                 }
             }
         }
@@ -62,10 +65,42 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun TaskManager(modifier: Modifier = Modifier){
+    val image = painterResource(R.drawable.ic_task_completed)
+    Column(
+        verticalArrangement = Arrangement.Center
+    ) {
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+        Text(
+            text = "All tasks completed",
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(0.dp,24.dp,0.dp,8.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+
+        )
+        Text(
+            text = "Nice work!",
+            fontSize = 16.sp,
+            modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+    }
+
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ArticlePage_Compose_AppTheme {
-        Greeting("Android")
+        /*Greeting("Android")*/
+        TaskManager()
     }
 }
