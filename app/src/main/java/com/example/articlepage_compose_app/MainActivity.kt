@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,9 +36,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArticlePage_Compose_AppTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    /*Greeting(
-                        name = "Android"
-                    )*/
                     ComposeQuadrant()
                 }
             }
@@ -46,54 +44,29 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.bg_compose_background)
-    Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Image(
-            painter = image,
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            alpha = 0.5f
-        )
-        Text(
-            text = "Jetpack Compose tutorial",
-            fontSize = 24.sp,
-        )
-        Text(
-            text = "Jetpack Compose is a modern toolkit for building native Android UI. Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.\n" +
-                    "In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.",
-            textAlign = TextAlign.Justify
-        )
-    }
-}
-
-@Composable
 fun ComposeQuadrant(){
         Column(Modifier.fillMaxWidth()) {
             Row(Modifier.weight(1f)) {
                 QuadrantItem(
-                    heading = "Text composable",
-                    description = "Displays text and follows the recommended Material Design guidelines.",
+                    heading = stringResource(R.string.text_composable),
+                    description = stringResource(R.string.description_1),
                     backgroundColor = Color(0xFFEADDFF),
                     modifier = Modifier.weight(1f))
                 QuadrantItem(
-                    heading = "Image composable",
-                    description = "Creates a composable that lays out and draws a given Painter class object.",
+                    heading = stringResource(R.string.image_composable),
+                    description = stringResource(R.string.description_2),
                     backgroundColor = Color(0xFFD0BCFF),
                     modifier = Modifier.weight(1f))
             }
             Row(modifier = Modifier.weight(1f)) {
                 QuadrantItem(
-                    heading = "Row composable",
-                    description = "A layout composable that places its children in a horizontal sequence.",
+                    heading = stringResource(R.string.row_composable),
+                    description = stringResource(R.string.description_3),
                     backgroundColor = Color(0xFFB69DF8),
                     modifier = Modifier.weight(1f))
                 QuadrantItem(
-                    heading = "Column composable",
-                    description = "A layout composable that places its children in a vertical sequence.",
+                    heading = stringResource(R.string.column_composable),
+                    description = stringResource(R.string.description_4),
                     backgroundColor = Color(0xFFF6EDFF),
                     modifier = Modifier.weight(1f))
             }
@@ -126,8 +99,6 @@ fun QuadrantItem(heading: String,description: String, backgroundColor: Color, mo
 @Composable
 fun GreetingPreview() {
     ArticlePage_Compose_AppTheme {
-        /*Greeting("Android")*/
         ComposeQuadrant()
-        //QuadrantItem(heading = "Column composable", description = "A layout composable that places its children in a vertical sequence.", backgroundColor = Color(0xFFF6EDFF))
     }
 }
