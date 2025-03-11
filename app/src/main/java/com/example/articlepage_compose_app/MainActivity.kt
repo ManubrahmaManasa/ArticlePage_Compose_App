@@ -41,8 +41,8 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.bg_compose_background)
     Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(16.dp)
+        verticalArrangement = Arrangement.spacedBy(18.dp),
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = image,
@@ -53,12 +53,17 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         Text(
             text = "Jetpack Compose tutorial",
             fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp)
         )
         Text(
-            text = "Jetpack Compose is a modern toolkit for building native Android UI. Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.\n" +
-                    "In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.",
-            textAlign = TextAlign.Justify
+            text = "Jetpack Compose is a modern toolkit for building native Android UI. Compose simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.",
+            textAlign = TextAlign.Justify,
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp)
         )
+        Text(
+            text = "In this tutorial, you build a simple UI component with declarative functions. You call Compose functions to say what elements you want and the Compose compiler does the rest. Compose is built around Composable functions. These functions let you define your app\\'s UI programmatically because they let you describe how it should look and provide data dependencies, rather than focus on the process of the UI\\'s construction, such as initializing an element and then attaching it to a parent. To create a Composable function, you add the @Composable annotation to the function name.",
+            textAlign = TextAlign.Justify,
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp))
     }
 }
 
